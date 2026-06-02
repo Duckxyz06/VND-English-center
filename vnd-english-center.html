@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VND English Center | Nền tảng đào tạo tiếng Anh thông minh – Cao Lãnh, Đồng Tháp</title>
+<meta name="description" content="VND English Center – Nền tảng EdTech tích hợp AI tư vấn, lộ trình cá nhân, luyện VSTEP B1/B2. Cao Lãnh, Đồng Tháp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   SITE SETTINGS – thay đổi 1 nơi, cập nhật toàn site
+═══════════════════════════════════════ */
+:root {
+  --site-name: "VND English Center";
+  --site-phone: "0907 123 456";
+  --site-address: "330 Phạm Hữu Lầu, P. Cao Lãnh, Đồng Tháp";
+  --site-email: "contact@vnd.edu.vn";
+}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS – Light Mode
+═══════════════════════════════════════ */
+[data-theme="light"] {
+  --bg: #f4f2ee;
+  --bg2: #edeae3;
+  --surface: rgba(255,255,255,0.85);
+  --surface2: rgba(255,255,255,0.6);
+  --ink: #0d0f14;
+  --ink2: #1c2033;
+  --text: #2d3047;
+  --text2: #5c607a;
+  --text3: #9198b4;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --shadow: 0 4px 32px rgba(0,0,0,0.08);
+  --shadow-xl: 0 16px 64px rgba(0,0,0,0.14);
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(255,255,255,0.9);
+  --nav-bg: rgba(244,242,238,0.92);
+}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS – Dark Mode
+═══════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg: #0a0c12;
+  --bg2: #111420;
+  --surface: rgba(255,255,255,0.05);
+  --surface2: rgba(255,255,255,0.03);
+  --ink: #f0f2ff;
+  --ink2: #c8ccec;
+  --text: #b0b5d4;
+  --text2: #7880a8;
+  --text3: #454d72;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --shadow: 0 4px 32px rgba(0,0,0,0.4);
+  --shadow-xl: 0 16px 64px rgba(0,0,0,0.6);
+  --glass-bg: rgba(15,18,32,0.8);
+  --glass-border: rgba(255,255,255,0.1);
+  --nav-bg: rgba(10,12,18,0.92);
+}
+
+/* ═══════════════════════════════════════
+   BRAND COLORS (theme-independent)
+═══════════════════════════════════════ */
+:root {
+  --primary: #4f63ff;
+  --primary2: #7b8bff;
+  --primary3: #b3bcff;
+  --emerald: #00d97e;
+  --emerald2: #00f090;
+  --amber: #ffb547;
+  --amber2: #ffd07a;
+  --rose: #ff5c7a;
+  --w: clamp(320px,94vw,1200px);
+  --r: 16px;
+  --r2: 24px;
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Be Vietnam Pro',sans-serif;
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+
+/* noise overlay */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9998;
+}
+
+/* ═══════════════════════════════════════
+   GLASS UTILITY
+═══════════════════════════════════════ */
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--glass-border);
+}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 clamp(16px,4vw,48px);height:66px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:.3s;
+}
+nav.scrolled{
+  background:var(--nav-bg);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 24px rgba(0,0,0,.06);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.nav-logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;color:#fff;
+  box-shadow:0 4px 14px rgba(79,99,255,.4);
+}
+.nav-logo-text{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;
+  color:var(--ink);letter-spacing:-.3px;
+}
+.nav-logo-text span{color:var(--primary);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{
+  padding:7px 13px;font-size:14px;font-weight:500;
+  color:var(--text2);text-decoration:none;border-radius:8px;transition:.2s;
+}
+.nav-links a:hover{color:var(--ink);background:var(--surface);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.btn-theme{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;transition:.2s;color:var(--text2);
+}
+.btn-theme:hover{color:var(--ink);border-color:var(--border2);}
+.nav-cta{
+  background:var(--primary);color:#fff;
+  padding:9px 20px;border-radius:10px;
+  font-size:14px;font-weight:600;text-decoration:none;
+  transition:.2s;border:none;cursor:pointer;
+  box-shadow:0 4px 14px rgba(79,99,255,.35);
+}
+.nav-cta:hover{background:var(--primary2);transform:translateY(-1px);}
+.nav-mobile-btn{display:none;background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer;}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;padding-top:66px;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+/* Animated gradient mesh background */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 50%, rgba(79,99,255,.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(0,217,126,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 60% 90%, rgba(255,181,71,.06) 0%, transparent 50%);
+  animation:meshMove 12s ease-in-out infinite alternate;
+}
+@keyframes meshMove{
+  from{opacity:1;transform:scale(1);}
+  to{opacity:.7;transform:scale(1.05);}
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(48px,8vw,96px) clamp(24px,5vw,72px);
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(79,99,255,.1);
+  border:1px solid rgba(79,99,255,.2);
+  border-radius:100px;padding:5px 14px;
+  font-size:12px;font-weight:600;color:var(--primary);
+  letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:28px;width:fit-content;
+}
+.hero-badge-dot{
+  width:6px;height:6px;background:var(--emerald);
+  border-radius:50%;animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(38px,5vw,68px);
+  font-weight:800;line-height:1.06;
+  color:var(--ink);margin-bottom:10px;
+  letter-spacing:-1.5px;
+}
+.hero h1 .hi{color:var(--primary);}
+.hero h1 .ha{
+  background:linear-gradient(90deg,var(--emerald),var(--primary2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(16px,2vw,19px);color:var(--text2);
+  line-height:1.7;max-width:480px;margin-bottom:36px;
+}
+.hero-sub strong{color:var(--ink);font-weight:600;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{
+  background:var(--primary);color:#fff;
+  padding:14px 26px;border-radius:12px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:.2s;border:2px solid var(--primary);
+  box-shadow:0 6px 20px rgba(79,99,255,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(79,99,255,.45);}
+.btn-outline{
+  background:transparent;color:var(--ink);
+  padding:14px 26px;border-radius:12px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:.2s;border:2px solid var(--border2);
+}
+.btn-outline:hover{background:var(--surface);border-color:var(--primary);color:var(--primary);}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.hero-stat-num{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:30px;font-weight:800;color:var(--ink);line-height:1;
+}
+.hero-stat-num em{color:var(--primary);font-style:normal;font-size:22px;}
+.hero-stat-label{font-size:12px;color:var(--text3);margin-top:3px;}
+
+/* Hero Right – floating cards */
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(24px,5vw,60px);position:relative;z-index:2;
+}
+.hero-visual{width:100%;max-width:500px;aspect-ratio:1/1.1;position:relative;}
+/* Main card */
+.hv-main{
+  position:absolute;top:5%;left:0;right:8%;
+  border-radius:var(--r2);padding:28px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(24px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-xl);
+}
+[data-theme="dark"] .hv-main{
+  background:rgba(20,24,45,0.85);
+  border-color:rgba(79,99,255,.2);
+}
+.hv-main-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:500;color:var(--primary);
+  text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;
+}
+.hv-course-list{display:flex;flex-direction:column;gap:8px;}
+.hv-course{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 14px;transition:.2s;
+}
+.hv-course:hover{border-color:var(--primary);transform:translateX(4px);}
+.hv-course-name{font-size:13px;font-weight:600;color:var(--ink);}
+.hv-course-badge{
+  font-size:10px;font-weight:700;padding:3px 9px;
+  border-radius:20px;letter-spacing:.3px;
+}
+.cb-blue{background:rgba(79,99,255,.15);color:var(--primary2);}
+.cb-green{background:rgba(0,217,126,.15);color:var(--emerald);}
+.cb-amber{background:rgba(255,181,71,.15);color:var(--amber);}
+/* Float cards */
+.hv-float{
+  position:absolute;
+  background:var(--glass-bg);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:14px 18px;
+  box-shadow:var(--shadow);
+}
+[data-theme="dark"] .hv-float{
+  background:rgba(20,24,45,0.85);
+  border-color:rgba(255,255,255,.1);
+}
+.hv-float.f1{bottom:22%;right:0;width:190px;animation:floatA 4s ease-in-out infinite;}
+.hv-float.f2{bottom:4%;left:4%;width:175px;animation:floatB 5s ease-in-out infinite;}
+@keyframes floatA{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes floatB{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+.hv-float-label{font-size:10px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.hv-float-val{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;color:var(--ink);}
+.hv-float-val em{font-style:normal;font-size:13px;color:var(--emerald);font-weight:600;margin-left:4px;}
+
+/* ═══════════════════════════════════════
+   MARQUEE TICKER
+═══════════════════════════════════════ */
+.ticker{
+  background:var(--primary);
+  padding:12px 0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.1);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.ticker-track{
+  display:flex;gap:0;width:max-content;
+  animation:tick 30s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{
+  white-space:nowrap;padding:0 32px;font-size:13px;
+  font-weight:500;color:rgba(255,255,255,.7);
+  display:flex;align-items:center;gap:14px;
+}
+.ticker-item strong{color:#fff;}
+.ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);}
+@keyframes tick{to{transform:translateX(-50%);}}
+
+/* ═══════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════ */
+section{padding:clamp(64px,8vw,112px) clamp(16px,4vw,48px);}
+.section-inner{max-width:var(--w);margin:0 auto;}
+.section-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:500;color:var(--primary);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:12px;display:block;
+}
+.section-title{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(30px,4vw,48px);
+  font-weight:800;color:var(--ink);
+  line-height:1.1;margin-bottom:16px;
+  letter-spacing:-1px;
+}
+.section-title em{font-style:normal;color:var(--primary);}
+.section-desc{font-size:17px;color:var(--text2);line-height:1.7;max-width:540px;}
+
+/* fade-up animation */
+.fade-up{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.4,0,.2,1);}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ═══════════════════════════════════════
+   AI ADVISOR SECTION
+═══════════════════════════════════════ */
+.ai-advisor-section{
+  background:linear-gradient(135deg,var(--bg2) 0%,var(--bg) 100%);
+  position:relative;overflow:hidden;
+}
+.ai-advisor-section::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,99,255,.08),transparent 70%);
+}
+.ai-advisor-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+}
+.ai-info-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(79,99,255,.1);border:1px solid rgba(79,99,255,.2);
+  border-radius:100px;padding:5px 14px;margin-bottom:20px;
+  font-size:12px;font-weight:600;color:var(--primary);
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.ai-chat-widget{
+  background:var(--glass-bg);
+  backdrop-filter:blur(24px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);overflow:hidden;
+  box-shadow:var(--shadow-xl);
+}
+[data-theme="dark"] .ai-chat-widget{
+  background:rgba(15,18,32,.9);
+  border-color:rgba(79,99,255,.2);
+}
+.ai-chat-header{
+  padding:16px 20px;
+  background:linear-gradient(90deg,var(--primary),var(--primary2));
+  display:flex;align-items:center;gap:10px;
+}
+.ai-chat-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;border:2px solid rgba(255,255,255,.3);
+}
+.ai-chat-name{font-size:14px;font-weight:700;color:#fff;}
+.ai-chat-status{font-size:11px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px;}
+.ai-chat-status::before{content:'';width:6px;height:6px;background:var(--emerald);border-radius:50%;display:inline-block;animation:blink 2s infinite;}
+.ai-messages{padding:20px;display:flex;flex-direction:column;gap:12px;min-height:260px;max-height:260px;overflow-y:auto;}
+.ai-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.6;}
+.ai-msg.bot{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text);align-self:flex-start;border-bottom-left-radius:4px;
+}
+.ai-msg.user{
+  background:var(--primary);color:#fff;
+  align-self:flex-end;border-bottom-right-radius:4px;
+}
+.ai-msg.loading{background:var(--surface);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px;}
+.ai-typing{display:flex;gap:4px;padding:4px 0;}
+.ai-typing span{width:6px;height:6px;background:var(--text3);border-radius:50%;animation:typing 1.2s infinite;}
+.ai-typing span:nth-child(2){animation-delay:.2s;}
+.ai-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typing{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+.ai-input-area{padding:16px;border-top:1px solid var(--border);display:flex;gap:10px;}
+.ai-input{
+  flex:1;background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 14px;font-size:14px;
+  color:var(--ink);outline:none;font-family:'Be Vietnam Pro',sans-serif;
+  transition:.2s;
+}
+.ai-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,99,255,.12);}
+.ai-input::placeholder{color:var(--text3);}
+.ai-send{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--primary);color:#fff;
+  border:none;cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s;flex-shrink:0;
+}
+.ai-send:hover{background:var(--primary2);transform:scale(1.05);}
+.ai-send:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.ai-quick-btns{
+  padding:0 16px 16px;display:flex;gap:7px;flex-wrap:wrap;
+}
+.ai-quick{
+  background:rgba(79,99,255,.1);border:1px solid rgba(79,99,255,.2);
+  color:var(--primary);border-radius:20px;
+  padding:6px 12px;font-size:12px;font-weight:500;
+  cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.ai-quick:hover{background:rgba(79,99,255,.2);}
+
+/* ═══════════════════════════════════════
+   ECOSYSTEM SECTION
+═══════════════════════════════════════ */
+.ecosystem{background:var(--ink);}
+.ecosystem .section-eyebrow{color:var(--amber);}
+.ecosystem .section-title{color:#fff;}
+.ecosystem .section-title em{color:var(--primary2);}
+.ecosystem .section-desc{color:rgba(255,255,255,.5);}
+.ecosystem-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;margin-top:56px;align-items:start;}
+.eco-left{display:flex;flex-direction:column;gap:16px;}
+.eco-feature{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);padding:20px;transition:.3s;cursor:pointer;
+}
+.eco-feature:hover,.eco-feature.active{
+  background:rgba(79,99,255,.15);
+  border-color:rgba(79,99,255,.35);
+}
+.eco-feature-icon{font-size:28px;margin-bottom:10px;}
+.eco-feature h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;}
+.eco-feature p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;}
+.eco-right{position:sticky;top:80px;}
+.eco-preview{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r2);padding:32px;
+  min-height:380px;
+}
+.eco-preview-header{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:rgba(255,255,255,.35);
+  margin-bottom:20px;letter-spacing:1px;
+}
+.eco-stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
+.eco-stat-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:16px;
+}
+.eco-stat-num{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;
+  color:#fff;line-height:1;
+}
+.eco-stat-num em{font-style:normal;color:var(--primary2);font-size:20px;}
+.eco-stat-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;}
+.eco-progress-list{display:flex;flex-direction:column;gap:14px;}
+.eco-prog-label{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:5px;}
+.eco-prog-label span{color:var(--amber);font-weight:700;}
+.prog-bar{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:3px;transition:width 1.5s cubic-bezier(.4,0,.2,1);}
+.pf-blue{background:linear-gradient(90deg,var(--primary),var(--primary2));}
+.pf-green{background:linear-gradient(90deg,#00b85c,var(--emerald2));}
+.pf-amber{background:linear-gradient(90deg,var(--amber),var(--amber2));}
+
+/* ═══════════════════════════════════════
+   COURSES
+═══════════════════════════════════════ */
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.course-card{
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);overflow:hidden;
+  box-shadow:var(--shadow);transition:.3s;
+}
+[data-theme="dark"] .course-card{
+  background:rgba(20,24,45,.7);
+  border-color:rgba(255,255,255,.08);
+}
+.course-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl);}
+.course-top{
+  height:160px;display:flex;align-items:center;
+  justify-content:center;font-size:52px;position:relative;overflow:hidden;
+}
+.cc-vstep .course-top{background:linear-gradient(135deg,#1a1e40,#2d3580);}
+.cc-online .course-top{background:linear-gradient(135deg,#0d3030,#1a6b6b);}
+.cc-b2 .course-top{background:linear-gradient(135deg,#280d3a,#6b1a8b);}
+.cc-giao .course-top{background:linear-gradient(135deg,#2d1a0d,#8b5a1a);}
+.cc-free .course-top{background:linear-gradient(135deg,#0d2d1a,#1a6b3a);}
+.cc-caphe .course-top{background:linear-gradient(135deg,#1a0d2d,#3a1a6b);}
+.course-tag{
+  position:absolute;top:12px;right:12px;z-index:1;
+  font-size:10px;font-weight:700;padding:4px 10px;
+  border-radius:20px;letter-spacing:.5px;
+}
+.ct-hot{background:var(--rose);color:#fff;}
+.ct-new{background:var(--emerald);color:#0d1a10;}
+.ct-free{background:var(--amber);color:#1a0d00;}
+.course-body{padding:20px 22px 22px;}
+.course-body h3{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:17px;
+  font-weight:700;color:var(--ink);margin-bottom:7px;line-height:1.3;
+}
+.course-body p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;}
+.course-feats{display:flex;flex-direction:column;gap:5px;margin-bottom:18px;}
+.course-feat{
+  font-size:13px;color:var(--text2);
+  display:flex;align-items:center;gap:8px;
+}
+.course-feat::before{content:'✓';color:var(--emerald);font-weight:700;flex-shrink:0;}
+.course-foot{display:flex;align-items:center;justify-content:space-between;}
+.course-price{
+  font-family:'JetBrains Mono',monospace;font-size:15px;
+  font-weight:500;color:var(--ink);
+}
+.course-price small{font-size:11px;color:var(--text3);display:block;font-family:'Be Vietnam Pro',sans-serif;}
+.course-btn{
+  background:var(--primary);color:#fff;border:none;
+  border-radius:9px;padding:8px 17px;font-size:13px;font-weight:600;
+  cursor:pointer;transition:.2s;text-decoration:none;display:inline-block;
+}
+.course-btn:hover{background:var(--primary2);}
+
+/* ═══════════════════════════════════════
+   AI SEARCH BAR
+═══════════════════════════════════════ */
+.ai-search-section{
+  background:linear-gradient(135deg,var(--primary) 0%,#7b5fff 100%);
+  padding:56px clamp(16px,4vw,48px);
+}
+.ai-search-inner{max-width:700px;margin:0 auto;text-align:center;}
+.ai-search-title{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(24px,3.5vw,36px);
+  font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.5px;
+}
+.ai-search-sub{font-size:15px;color:rgba(255,255,255,.7);margin-bottom:28px;}
+.search-box{
+  display:flex;gap:0;background:rgba(255,255,255,.12);
+  border:2px solid rgba(255,255,255,.2);border-radius:14px;
+  overflow:hidden;backdrop-filter:blur(12px);transition:.2s;
+}
+.search-box:focus-within{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.5);}
+.search-input{
+  flex:1;background:none;border:none;padding:16px 20px;
+  font-size:15px;color:#fff;outline:none;
+  font-family:'Be Vietnam Pro',sans-serif;
+}
+.search-input::placeholder{color:rgba(255,255,255,.6);}
+.search-btn{
+  background:rgba(255,255,255,.2);border:none;padding:0 24px;
+  color:#fff;font-size:14px;font-weight:600;cursor:pointer;
+  transition:.2s;display:flex;align-items:center;gap:8px;
+}
+.search-btn:hover{background:rgba(255,255,255,.3);}
+.search-suggestions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;}
+.search-sug{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.85);border-radius:20px;padding:6px 14px;
+  font-size:12px;font-weight:500;cursor:pointer;transition:.2s;
+}
+.search-sug:hover{background:rgba(255,255,255,.22);}
+.search-result-box{
+  margin-top:20px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:12px;
+  padding:16px 20px;text-align:left;display:none;
+}
+.search-result-box.show{display:block;}
+.search-result-text{font-size:14px;color:#fff;line-height:1.7;}
+.search-result-text strong{color:var(--amber2);}
+
+/* ═══════════════════════════════════════
+   SOCIAL PROOF
+═══════════════════════════════════════ */
+.proof-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border-radius:var(--r2);overflow:hidden;
+  margin-bottom:56px;border:1px solid var(--border);
+}
+.proof-stat{
+  background:var(--surface);padding:28px;text-align:center;
+}
+.proof-stat-num{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:44px;
+  font-weight:800;color:var(--ink);line-height:1;
+}
+.proof-stat-num em{font-style:normal;color:var(--primary);font-size:32px;}
+.proof-stat-label{font-size:13px;color:var(--text3);margin-top:5px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.review-card{
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);padding:22px;transition:.3s;
+}
+[data-theme="dark"] .review-card{
+  background:rgba(20,24,45,.7);border-color:rgba(255,255,255,.07);
+}
+.review-card:hover{transform:translateY(-4px);}
+.review-stars{color:var(--amber);font-size:13px;letter-spacing:2px;margin-bottom:10px;}
+.review-title{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:15px;
+  font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.4;
+}
+.review-text{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:14px;}
+.review-author{display:flex;align-items:center;gap:10px;}
+.review-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.review-name{font-size:13px;font-weight:600;color:var(--ink);}
+.review-meta{font-size:11px;color:var(--text3);}
+
+/* ═══════════════════════════════════════
+   LEARNING PATH
+═══════════════════════════════════════ */
+.path-section{background:var(--bg2);}
+.path-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:48px;position:relative;
+}
+.path-steps::before{
+  content:'';position:absolute;
+  top:36px;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--emerald));
+  z-index:0;
+}
+.path-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 16px;position:relative;z-index:1;
+}
+.path-step-num{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  border:2px solid var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;
+  color:var(--primary);margin-bottom:18px;
+  box-shadow:0 0 0 6px rgba(79,99,255,.1);
+}
+.path-step h4{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:15px;
+  font-weight:700;color:var(--ink);margin-bottom:6px;
+}
+.path-step p{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* ═══════════════════════════════════════
+   RESOURCES
+═══════════════════════════════════════ */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;align-items:center;}
+.res-cards{display:flex;flex-direction:column;gap:12px;}
+.res-card{
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:18px 20px;
+  display:flex;gap:14px;align-items:center;
+  transition:.3s;cursor:pointer;
+}
+[data-theme="dark"] .res-card{
+  background:rgba(20,24,45,.7);border-color:rgba(255,255,255,.07);
+}
+.res-card:hover{transform:translateX(6px);border-color:var(--primary);}
+.res-icon{
+  width:44px;height:44px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.ri-blue{background:rgba(79,99,255,.12);}
+.ri-green{background:rgba(0,217,126,.12);}
+.ri-amber{background:rgba(255,181,71,.12);}
+.res-card h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.res-card p{font-size:13px;color:var(--text2);}
+.res-cta{
+  background:linear-gradient(135deg,var(--ink2),var(--ink));
+  border-radius:var(--r2);padding:36px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:300px;position:relative;overflow:hidden;
+}
+[data-theme="dark"] .res-cta{background:linear-gradient(135deg,#0d1028,#1a1e40);}
+.res-cta::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,99,255,.25),transparent 70%);
+}
+.res-cta h3{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:26px;
+  font-weight:800;color:#fff;line-height:1.2;position:relative;z-index:1;
+  letter-spacing:-.5px;
+}
+.res-cta h3 em{font-style:normal;color:var(--primary2);}
+.res-cta p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin-top:10px;position:relative;z-index:1;}
+.res-cta-btn{
+  background:var(--primary);color:#fff;border:none;
+  border-radius:10px;padding:14px 22px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:.2s;margin-top:24px;
+  position:relative;z-index:1;text-decoration:none;display:inline-block;align-self:flex-start;
+  box-shadow:0 6px 20px rgba(79,99,255,.4);
+}
+.res-cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(79,99,255,.5);}
+
+/* ═══════════════════════════════════════
+   PARTNERS
+═══════════════════════════════════════ */
+.partners{background:var(--bg2);}
+.partners-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px;}
+.partner-chip{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:100px;padding:9px 20px;font-size:13px;
+  font-weight:600;color:var(--text2);transition:.2s;cursor:default;
+}
+.partner-chip:hover{border-color:var(--primary);color:var(--primary);}
+
+/* ═══════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════ */
+.cta-banner{
+  background:linear-gradient(135deg,var(--primary) 0%,#7b5fff 100%);
+  padding:80px clamp(16px,4vw,48px);text-align:center;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+}
+.cta-banner h2{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,4vw,48px);
+  font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.5px;
+  position:relative;z-index:1;
+}
+.cta-banner h2 em{font-style:normal;color:var(--amber2);}
+.cta-banner p{font-size:17px;color:rgba(255,255,255,.75);margin-bottom:32px;position:relative;z-index:1;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.btn-white{
+  background:#fff;color:var(--primary);
+  padding:15px 28px;border-radius:12px;
+  font-size:15px;font-weight:700;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:.2s;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.3);}
+.btn-ghost-white{
+  background:rgba(255,255,255,.15);color:#fff;
+  padding:15px 28px;border-radius:12px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:.2s;
+  border:2px solid rgba(255,255,255,.3);
+}
+.btn-ghost-white:hover{background:rgba(255,255,255,.25);}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;}
+.contact-info{display:flex;flex-direction:column;gap:14px;}
+.contact-item{
+  background:var(--glass-bg);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:18px 20px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+[data-theme="dark"] .contact-item{background:rgba(20,24,45,.7);border-color:rgba(255,255,255,.07);}
+.contact-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.contact-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
+.contact-val{font-size:14px;color:var(--ink);font-weight:500;line-height:1.5;}
+.contact-form{
+  background:var(--glass-bg);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);padding:32px;
+}
+[data-theme="dark"] .contact-form{background:rgba(20,24,45,.7);border-color:rgba(255,255,255,.07);}
+.form-title{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:20px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.form-group label{font-size:13px;font-weight:600;color:var(--text2);}
+.form-group input,.form-group select,.form-group textarea{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:11px 14px;font-size:14px;
+  color:var(--ink);outline:none;font-family:'Be Vietnam Pro',sans-serif;
+  transition:.2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,99,255,.12);
+}
+.form-group textarea{min-height:80px;resize:vertical;}
+.form-group select option{background:var(--bg);}
+.form-submit{
+  width:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));
+  color:#fff;border:none;border-radius:12px;
+  padding:14px;font-size:15px;font-weight:600;
+  cursor:pointer;transition:.2s;margin-top:4px;
+  box-shadow:0 6px 20px rgba(79,99,255,.35);
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(79,99,255,.45);}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--ink);
+  padding:60px clamp(16px,4vw,48px) 0;
+}
+.footer-inner{max-width:var(--w);margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;}
+.footer-brand a{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;margin-bottom:14px;
+}
+.footer-brand .logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;color:#fff;
+}
+.footer-brand .logo-text{
+  font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:#fff;
+}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;}
+.footer-social{display:flex;gap:10px;margin-top:16px;}
+.social-btn{
+  width:38px;height:38px;border-radius:9px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;text-decoration:none;transition:.2s;
+}
+.social-btn:hover{background:rgba(79,99,255,.25);border-color:rgba(79,99,255,.4);}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;}
+.footer-col a:hover{color:rgba(255,255,255,.85);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:20px 0;display:flex;justify-content:space-between;align-items:center;
+}
+.footer-bottom span{font-size:13px;color:rgba(255,255,255,.3);}
+.footer-bottom a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;}
+.footer-bottom a:hover{color:rgba(255,255,255,.7);}
+
+/* ═══════════════════════════════════════
+   DEV MODE
+═══════════════════════════════════════ */
+body.dev-mode [data-dev] {
+  position:relative;outline:2px dashed rgba(79,99,255,.5);outline-offset:2px;cursor:pointer;
+  transition:outline .15s;
+}
+body.dev-mode [data-dev]:hover {
+  outline-color:var(--primary);outline-width:2px;
+  z-index:10;
+}
+body.dev-mode [data-dev]:hover > .dev-label { display:flex; }
+.dev-label {
+  display:none;position:absolute;top:-28px;left:0;z-index:1000;
+  background:var(--primary);color:#fff;border-radius:6px 6px 6px 0;
+  padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.3px;
+  white-space:nowrap;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+  pointer-events:none;
+}
+/* Dev toolbar */
+#devBar {
+  display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:9997;background:rgba(10,12,18,.96);backdrop-filter:blur(20px);
+  border:1px solid rgba(79,99,255,.4);border-radius:14px;padding:10px 16px;
+  align-items:center;gap:12px;box-shadow:0 8px 40px rgba(0,0,0,.6);
+  font-family:'JetBrains Mono',monospace;
+}
+body.dev-mode #devBar { display:flex; }
+.dev-bar-label {
+  font-size:10px;font-weight:700;color:rgba(255,255,255,.4);
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+.dev-bar-dot {
+  width:8px;height:8px;border-radius:50%;
+  background:var(--emerald);box-shadow:0 0 8px rgba(0,217,126,.7);
+  animation:blink 1.5s infinite;
+}
+.dev-btn {
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.8);border-radius:8px;padding:6px 12px;
+  font-size:12px;font-weight:500;cursor:pointer;transition:.2s;
+  font-family:'JetBrains Mono',monospace;
+  display:flex;align-items:center;gap:6px;
+}
+.dev-btn:hover{background:rgba(255,255,255,.15);color:#fff;}
+.dev-btn.danger:hover{background:rgba(255,92,122,.2);color:var(--rose);border-color:rgba(255,92,122,.3);}
+.dev-sep{width:1px;height:20px;background:rgba(255,255,255,.1);}
+/* Dev panel (right drawer) */
+#devPanel {
+  display:none;position:fixed;top:0;right:0;bottom:0;width:340px;z-index:9999;
+  background:rgba(10,12,18,.97);backdrop-filter:blur(24px);
+  border-left:1px solid rgba(79,99,255,.25);
+  flex-direction:column;overflow:hidden;
+}
+body.dev-mode.dev-panel-open #devPanel { display:flex; }
+.dev-panel-header {
+  padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+.dev-panel-title {
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+  font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;
+}
+.dev-panel-close {
+  width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.07);
+  border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:14px;
+  display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.dev-panel-close:hover{background:rgba(255,92,122,.2);color:var(--rose);}
+.dev-panel-body { flex:1;overflow-y:auto;padding:20px; }
+.dev-panel-body::-webkit-scrollbar{width:4px;}
+.dev-panel-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px;}
+.dev-section { margin-bottom:24px; }
+.dev-section-title {
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.dev-field { margin-bottom:12px; }
+.dev-field label {
+  font-size:11px;font-weight:600;color:rgba(255,255,255,.5);
+  display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;
+}
+.dev-input {
+  width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:9px 12px;font-size:13px;color:#fff;outline:none;
+  font-family:'Be Vietnam Pro',sans-serif;transition:.2s;
+}
+.dev-input:focus{border-color:rgba(79,99,255,.6);background:rgba(79,99,255,.08);}
+.dev-save-btn {
+  width:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));
+  color:#fff;border:none;border-radius:10px;padding:11px;font-size:13px;
+  font-weight:700;cursor:pointer;transition:.2s;margin-top:4px;
+  font-family:'Be Vietnam Pro',sans-serif;
+}
+.dev-save-btn:hover{opacity:.9;transform:translateY(-1px);}
+.dev-info-row {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 12px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);border-radius:8px;margin-bottom:8px;
+}
+.dev-info-key{font-size:11px;color:rgba(255,255,255,.4);font-family:'JetBrains Mono',monospace;}
+.dev-info-val{font-size:12px;color:rgba(255,255,255,.8);font-weight:600;}
+.dev-version-list{display:flex;flex-direction:column;gap:7px;}
+.dev-ver-item {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 12px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);border-radius:8px;
+}
+.dev-ver-time{font-size:11px;color:rgba(255,255,255,.35);font-family:'JetBrains Mono',monospace;}
+.dev-ver-label{font-size:12px;color:rgba(255,255,255,.7);}
+.dev-ver-btn {
+  font-size:10px;padding:3px 9px;border-radius:6px;
+  background:rgba(79,99,255,.2);color:var(--primary2);
+  border:none;cursor:pointer;font-weight:700;transition:.2s;
+}
+.dev-ver-btn:hover{background:rgba(79,99,255,.4);}
+/* Floating DEV toggle button (always visible for admin) */
+#devToggleBtn {
+  position:fixed;bottom:24px;right:24px;z-index:9996;
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(10,12,18,.9);backdrop-filter:blur(12px);
+  border:1px solid rgba(79,99,255,.3);color:rgba(255,255,255,.7);
+  cursor:pointer;font-size:14px;font-weight:700;transition:.2s;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+}
+#devToggleBtn:hover{background:rgba(79,99,255,.2);border-color:rgba(79,99,255,.6);color:#fff;}
+body.dev-mode #devToggleBtn{background:rgba(79,99,255,.3);border-color:var(--primary);color:#fff;}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{display:none;}
+  .ai-advisor-wrap{grid-template-columns:1fr;}
+  .ecosystem-grid{grid-template-columns:1fr;}
+  .courses-grid{grid-template-columns:repeat(2,1fr);}
+  .proof-stats{grid-template-columns:repeat(2,1fr);}
+  .reviews-grid{grid-template-columns:1fr;}
+  .path-steps{grid-template-columns:repeat(2,1fr);gap:32px;}
+  .path-steps::before{display:none;}
+  .res-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .nav-mobile-btn{display:block;}
+}
+@media(max-width:560px){
+  .courses-grid{grid-template-columns:1fr;}
+  .proof-stats{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .path-steps{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">V</div>
+    <span class="nav-logo-text">VND <span>English</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">Giới thiệu</a>
+    <a href="#courses">Khóa học</a>
+    <a href="#ai-advisor">AI Tư vấn</a>
+    <a href="#resources">Tài liệu</a>
+    <a href="#contact">Liên hệ</a>
+  </div>
+  <div class="nav-right">
+    <button class="btn-theme" id="themeToggle" title="Chuyển Dark/Light mode">🌙</button>
+    <a href="#contact" class="nav-cta">Đăng ký ngay</a>
+    <button class="nav-mobile-btn" onclick="toggleMobileMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Nền tảng EdTech số 1 Đồng Tháp
+    </div>
+    <h1>
+      Học tiếng Anh<br>
+      <span class="hi">thông minh</span><br>
+      cùng <span class="ha">AI</span>
+    </h1>
+    <p class="hero-sub">
+      VND English Center – trung tâm đào tạo <strong>VSTEP B1/B2</strong> tại Cao Lãnh, Đồng Tháp. Tích hợp <strong>AI tư vấn lộ trình</strong>, học online 24/7, cam kết đầu ra.
+    </p>
+    <div class="hero-actions">
+      <a href="#ai-advisor" class="btn-primary">🤖 Thử AI Tư vấn ngay</a>
+      <a href="#courses" class="btn-outline">📚 Xem khóa học</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">5000<em>+</em></div>
+        <div class="hero-stat-label">Học viên tin tưởng</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">95<em>%</em></div>
+        <div class="hero-stat-label">Đạt chứng chỉ</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4.9<em>★</em></div>
+        <div class="hero-stat-label">Đánh giá trung bình</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hv-main glass fade-up">
+        <div class="hv-main-label">// Khóa học nổi bật</div>
+        <div class="hv-course-list">
+          <div class="hv-course">
+            <span class="hv-course-name">VSTEP B1 – Mất gốc</span>
+            <span class="hv-course-badge cb-blue">HOT 🔥</span>
+          </div>
+          <div class="hv-course">
+            <span class="hv-course-name">VSTEP Online 24/7</span>
+            <span class="hv-course-badge cb-green">MỚI ✨</span>
+          </div>
+          <div class="hv-course">
+            <span class="hv-course-name">VSTEP B2 Nâng cao</span>
+            <span class="hv-course-badge cb-amber">PRO ⚡</span>
+          </div>
+          <div class="hv-course">
+            <span class="hv-course-name">Giao tiếp 4 Levels</span>
+            <span class="hv-course-badge cb-blue">ĐẶC BIỆT</span>
+          </div>
+        </div>
+      </div>
+      <div class="hv-float f1">
+        <div class="hv-float-label">Tỷ lệ đạt đầu ra</div>
+        <div class="hv-float-val">95<em>% ↑</em></div>
+      </div>
+      <div class="hv-float f2">
+        <div class="hv-float-label">Học viên mới tháng này</div>
+        <div class="hv-float-val">47<em>+</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE TICKER ═══ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><strong>VND English Center</strong> <span class="ticker-sep"></span></div>
+    <div class="ticker-item">🎓 VSTEP B1 · B2 · Online <span class="ticker-sep"></span></div>
+    <div class="ticker-item">🤖 AI Tư vấn lộ trình miễn phí <span class="ticker-sep"></span></div>
+    <div class="ticker-item">📍 Cao Lãnh, Đồng Tháp <span class="ticker-sep"></span></div>
+    <div class="ticker-item">☎ <strong>0907 123 456</strong> <span class="ticker-sep"></span></div>
+    <div class="ticker-item">✅ Cam kết đầu ra 95% <span class="ticker-sep"></span></div>
+    <div class="ticker-item">💻 Học online 24/7 <span class="ticker-sep"></span></div>
+    <div class="ticker-item">📚 Tài liệu độc quyền VND <span class="ticker-sep"></span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><strong>VND English Center</strong> <span class="ticker-sep"></span></div>
+    <div class="ticker-item">🎓 VSTEP B1 · B2 · Online <span class="ticker-sep"></span></div>
+    <div class="ticker-item">🤖 AI Tư vấn lộ trình miễn phí <span class="ticker-sep"></span></div>
+    <div class="ticker-item">📍 Cao Lãnh, Đồng Tháp <span class="ticker-sep"></span></div>
+    <div class="ticker-item">☎ <strong>0907 123 456</strong> <span class="ticker-sep"></span></div>
+    <div class="ticker-item">✅ Cam kết đầu ra 95% <span class="ticker-sep"></span></div>
+    <div class="ticker-item">💻 Học online 24/7 <span class="ticker-sep"></span></div>
+    <div class="ticker-item">📚 Tài liệu độc quyền VND <span class="ticker-sep"></span></div>
+  </div>
+</div>
+
+<!-- ═══ AI ADVISOR ═══ -->
+<section class="ai-advisor-section" id="ai-advisor">
+  <div class="section-inner">
+    <div class="ai-advisor-wrap">
+      <div class="fade-up">
+        <div class="ai-info-badge">🤖 Đột phá số 1</div>
+        <span class="section-eyebrow">AI Advisor</span>
+        <h2 class="section-title">Tư vấn lộ trình<br><em>cá nhân hóa</em></h2>
+        <p class="section-desc">
+          Hỏi AI về khóa học, lịch học, học phí hay lộ trình phù hợp. AI sẽ phân tích trình độ và đề xuất chương trình tối ưu cho bạn – miễn phí, 24/7.
+        </p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);">
+            <span style="color:var(--emerald);font-weight:700;">✓</span> Phân tích trình độ tự động
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);">
+            <span style="color:var(--emerald);font-weight:700;">✓</span> Đề xuất khóa học phù hợp nhất
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);">
+            <span style="color:var(--emerald);font-weight:700;">✓</span> Tạo lộ trình học 3–6 tháng
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);">
+            <span style="color:var(--emerald);font-weight:700;">✓</span> Tư vấn học phí & lịch học
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="ai-chat-widget">
+          <div class="ai-chat-header">
+            <div class="ai-chat-avatar">🤖</div>
+            <div>
+              <div class="ai-chat-name">VND AI Advisor</div>
+              <div class="ai-chat-status">Đang hoạt động</div>
+            </div>
+          </div>
+          <div class="ai-messages" id="aiMessages">
+            <div class="ai-msg bot">
+              👋 Xin chào! Mình là AI Advisor của <strong>VND English Center</strong>.<br><br>
+              Bạn muốn học VSTEP B1/B2, tiếng Anh giao tiếp, hay cần tư vấn lộ trình? Cứ hỏi mình nhé!
+            </div>
+          </div>
+          <div class="ai-quick-btns">
+            <button class="ai-quick" onclick="sendQuick('Tôi mất gốc, học khóa nào?')">Mất gốc học gì?</button>
+            <button class="ai-quick" onclick="sendQuick('Cần VSTEP B1 trong 2 tháng')">B1 trong 2 tháng</button>
+            <button class="ai-quick" onclick="sendQuick('Học phí VSTEP bao nhiêu?')">Học phí?</button>
+            <button class="ai-quick" onclick="sendQuick('Khóa nào học tối/cuối tuần?')">Lịch tối/T7-CN</button>
+          </div>
+          <div class="ai-input-area">
+            <input
+              class="ai-input"
+              id="aiInput"
+              type="text"
+              placeholder="Hỏi AI tư vấn khóa học..."
+              onkeydown="if(event.key==='Enter') sendAI()"
+            >
+            <button class="ai-send" id="aiSendBtn" onclick="sendAI()">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ECOSYSTEM ═══ -->
+<section class="ecosystem" id="ecosystem">
+  <div class="section-inner">
+    <span class="section-eyebrow">Hệ sinh thái VND</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;margin-bottom:0;">
+      <h2 class="section-title fade-up" style="margin-bottom:0;">Nền tảng <em>EdTech</em><br>hoàn chỉnh</h2>
+      <p class="section-desc fade-up" style="color:rgba(255,255,255,.5)">Không chỉ là trung tâm ngoại ngữ – VND là nền tảng đào tạo thông minh tích hợp AI, LMS, CRM và quản trị toàn diện.</p>
+    </div>
+    <div class="ecosystem-grid">
+      <div class="eco-left">
+        <div class="eco-feature active" onclick="showEco(this,'dashboard')">
+          <div class="eco-feature-icon">📊</div>
+          <h4>Dashboard thông minh</h4>
+          <p>Xem doanh thu, học viên, đăng ký mới ngay sau đăng nhập. CEO nhìn 5 giây hiểu tất cả.</p>
+        </div>
+        <div class="eco-feature" onclick="showEco(this,'crm')">
+          <div class="eco-feature-icon">👥</div>
+          <h4>CRM học viên tích hợp</h4>
+          <p>Pipeline từ Lead → Tư vấn → Đóng học phí → Đang học. Không cần Google Sheet + Zalo rời rạc.</p>
+        </div>
+        <div class="eco-feature" onclick="showEco(this,'lms')">
+          <div class="eco-feature-icon">🎓</div>
+          <h4>LMS Gamification</h4>
+          <p>Streak, XP, Level, Achievement. Học viên học như chơi game – tăng tỷ lệ hoàn thành 40%.</p>
+        </div>
+        <div class="eco-feature" onclick="showEco(this,'builder')">
+          <div class="eco-feature-icon">🔧</div>
+          <h4>Live Website Builder</h4>
+          <p>Admin hover vào banner, click Edit, sửa ngay. Không cần code, không cần Elementor.</p>
+        </div>
+      </div>
+      <div class="eco-right">
+        <div class="eco-preview" id="ecoPreview">
+          <div class="eco-preview-header">// DASHBOARD ADMIN – Tổng quan hôm nay</div>
+          <div class="eco-stats-grid">
+            <div class="eco-stat-card">
+              <div class="eco-stat-num">32.5<em>tr</em></div>
+              <div class="eco-stat-label">Doanh thu hôm nay</div>
+            </div>
+            <div class="eco-stat-card">
+              <div class="eco-stat-num">27<em>+</em></div>
+              <div class="eco-stat-label">Đăng ký mới</div>
+            </div>
+            <div class="eco-stat-card">
+              <div class="eco-stat-num">412</div>
+              <div class="eco-stat-label">Đang học</div>
+            </div>
+            <div class="eco-stat-card">
+              <div class="eco-stat-num">15.8<em>%</em></div>
+              <div class="eco-stat-label">Tỷ lệ chuyển đổi</div>
+            </div>
+          </div>
+          <div class="eco-progress-list">
+            <div>
+              <div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">VSTEP B1</span><span>420 triệu</span></div>
+              <div class="prog-bar"><div class="prog-fill pf-blue" data-w="88%"></div></div>
+            </div>
+            <div>
+              <div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">VSTEP Online</span><span>180 triệu</span></div>
+              <div class="prog-bar"><div class="prog-fill pf-green" data-w="62%"></div></div>
+            </div>
+            <div>
+              <div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">Giao tiếp</span><span>95 triệu</span></div>
+              <div class="prog-bar"><div class="prog-fill pf-amber" data-w="38%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COURSES ═══ -->
+<section id="courses">
+  <div class="section-inner">
+    <span class="section-eyebrow">Khóa học</span>
+    <h2 class="section-title fade-up">Chọn lộ trình <em>phù hợp</em> với bạn</h2>
+    <div class="courses-grid">
+      <div class="course-card cc-vstep fade-up">
+        <div class="course-top"><span>🎯</span><span class="course-tag ct-hot">HOT</span></div>
+        <div class="course-body">
+          <h3>VSTEP B1 – Người mất gốc</h3>
+          <p>Lộ trình từ con số 0, dành cho người đã lâu không học tiếng Anh. Giáo viên tận tâm, tài liệu độc quyền VND.</p>
+          <div class="course-feats">
+            <span class="course-feat">Lộ trình cá nhân hóa 3 tháng</span>
+            <span class="course-feat">Tài liệu độc quyền VND</span>
+            <span class="course-feat">Cam kết đạt B1 hoặc học lại</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">Liên hệ VND<small>Tư vấn miễn phí</small></div>
+            <a href="#contact" class="course-btn">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card cc-online fade-up">
+        <div class="course-top"><span>💻</span><span class="course-tag ct-new">MỚI</span></div>
+        <div class="course-body">
+          <h3>VSTEP B1 – Online 24/7</h3>
+          <p>Học mọi lúc mọi nơi qua hệ thống LMS. Video bài giảng HD, bài tập tương tác, AI hỗ trợ 24/7.</p>
+          <div class="course-feats">
+            <span class="course-feat">Video HD + bài tập tương tác</span>
+            <span class="course-feat">AI chấm điểm Writing tức thì</span>
+            <span class="course-feat">Học cuối tuần có giáo viên live</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">Liên hệ VND<small>Học thử miễn phí 3 ngày</small></div>
+            <a href="#contact" class="course-btn">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card cc-b2 fade-up">
+        <div class="course-top"><span>🏆</span></div>
+        <div class="course-body">
+          <h3>VSTEP B2 – Thực chiến</h3>
+          <p>Dành cho giảng viên, cán bộ, học viên cao học. Nâng cao Writing B2, Speaking lưu loát.</p>
+          <div class="course-feats">
+            <span class="course-feat">Chiến thuật Writing B2 chuẩn</span>
+            <span class="course-feat">Speaking với giáo viên nước ngoài</span>
+            <span class="course-feat">Tài liệu độc quyền VND B2</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">Liên hệ VND<small>Tư vấn miễn phí</small></div>
+            <a href="#contact" class="course-btn">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card cc-giao fade-up">
+        <div class="course-top"><span>💬</span><span class="course-tag ct-new">ĐẶC BIỆT</span></div>
+        <div class="course-body">
+          <h3>Giao tiếp Cơ bản – 4 Levels</h3>
+          <p>Từ phát âm đến hội thoại thực tế, học cùng giáo viên nước ngoài và người bản xứ.</p>
+          <div class="course-feats">
+            <span class="course-feat">Chỉnh phát âm chuẩn quốc tế</span>
+            <span class="course-feat">Tình huống giao tiếp thực tế</span>
+            <span class="course-feat">Câu lạc bộ ngoại khóa hàng tuần</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">Liên hệ VND<small>Giảm 200k/nhóm 3+</small></div>
+            <a href="#contact" class="course-btn">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card cc-free fade-up">
+        <div class="course-top"><span>🎁</span><span class="course-tag ct-free">FREE</span></div>
+        <div class="course-body">
+          <h3>Khóa học Miễn Phí</h3>
+          <p>Từ vựng, ngữ pháp cơ bản – điểm khởi đầu lý tưởng trước khi học VSTEP chính thức.</p>
+          <div class="course-feats">
+            <span class="course-feat">Từ vựng & ngữ pháp căn bản</span>
+            <span class="course-feat">Video bài giảng dễ hiểu</span>
+            <span class="course-feat">Truy cập trọn đời</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">0 ₫<small>Hoàn toàn miễn phí</small></div>
+            <a href="#contact" class="course-btn">Học ngay</a>
+          </div>
+        </div>
+      </div>
+      <div class="course-card cc-caphe fade-up">
+        <div class="course-top"><span>⚡</span><span class="course-tag ct-hot">CẤP TỐC</span></div>
+        <div class="course-body">
+          <h3>VSTEP Cấp tốc – 6 buổi</h3>
+          <p>Dành cho người có nền tảng, cần ôn luyện nhanh trước kỳ thi VSTEP sắp tới.</p>
+          <div class="course-feats">
+            <span class="course-feat">Chỉ 6 buổi, tập trung trọng tâm</span>
+            <span class="course-feat">Kỹ thuật làm bài chiến lược</span>
+            <span class="course-feat">Đề thi mô phỏng sát thật</span>
+          </div>
+          <div class="course-foot">
+            <div class="course-price">Liên hệ VND<small>Ưu đãi nhóm &gt;3 người</small></div>
+            <a href="#contact" class="course-btn">Đăng ký</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AI SEARCH ═══ -->
+<div class="ai-search-section">
+  <div class="ai-search-inner">
+    <div class="ai-search-title">🔍 Tìm khóa học bằng AI</div>
+    <div class="ai-search-sub">Hỏi bằng ngôn ngữ tự nhiên – AI sẽ gợi ý ngay</div>
+    <div class="search-box">
+      <input class="search-input" id="searchInput" type="text" placeholder="Khóa nào học tối? Tôi cần B1 trong 3 tháng?..." onkeydown="if(event.key==='Enter') doSearch()">
+      <button class="search-btn" onclick="doSearch()">✦ Tìm kiếm AI</button>
+    </div>
+    <div class="search-suggestions">
+      <span class="search-sug" onclick="setSearch('Khóa nào học cuối tuần?')">📅 Cuối tuần</span>
+      <span class="search-sug" onclick="setSearch('Tôi mất gốc học gì?')">🌱 Mất gốc</span>
+      <span class="search-sug" onclick="setSearch('Cần VSTEP B1 trong 2 tháng')">⚡ Cấp tốc B1</span>
+      <span class="search-sug" onclick="setSearch('Học phí bao nhiêu?')">💰 Học phí</span>
+      <span class="search-sug" onclick="setSearch('Khóa online có giáo viên không?')">💻 Online</span>
+    </div>
+    <div class="search-result-box" id="searchResult">
+      <div class="search-result-text" id="searchResultText"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LEARNING PATH ═══ -->
+<section class="path-section">
+  <div class="section-inner">
+    <span class="section-eyebrow">Lộ trình</span>
+    <h2 class="section-title fade-up" style="text-align:center;">4 bước đến <em>chứng chỉ VSTEP</em></h2>
+    <div class="path-steps">
+      <div class="path-step fade-up">
+        <div class="path-step-num">1</div>
+        <h4>AI Tư vấn</h4>
+        <p>Chat với AI Advisor, xác định trình độ và mục tiêu. Nhận lộ trình cá nhân hóa.</p>
+      </div>
+      <div class="path-step fade-up">
+        <div class="path-step-num">2</div>
+        <h4>Test đầu vào</h4>
+        <p>Làm bài test trình độ miễn phí. AI phân tích điểm mạnh/yếu chi tiết.</p>
+      </div>
+      <div class="path-step fade-up">
+        <div class="path-step-num">3</div>
+        <h4>Học & Luyện thi</h4>
+        <p>Học theo lộ trình, luyện đề thi VSTEP thực tế, được giáo viên hỗ trợ 1:1.</p>
+      </div>
+      <div class="path-step fade-up">
+        <div class="path-step-num">4</div>
+        <h4>Đạt chứng chỉ</h4>
+        <p>Thi và nhận chứng chỉ VSTEP. Cam kết hoàn tiền nếu không đạt đầu ra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL PROOF ═══ -->
+<section id="reviews">
+  <div class="section-inner">
+    <span class="section-eyebrow">Học viên nói gì?</span>
+    <h2 class="section-title fade-up">Kết quả <em>thực tế</em> từ học viên VND</h2>
+    <div class="proof-stats fade-up">
+      <div class="proof-stat"><div class="proof-stat-num">5000<em>+</em></div><div class="proof-stat-label">Học viên</div></div>
+      <div class="proof-stat"><div class="proof-stat-num">95<em>%</em></div><div class="proof-stat-label">Đạt đầu ra</div></div>
+      <div class="proof-stat"><div class="proof-stat-num">4.9<em>★</em></div><div class="proof-stat-label">Đánh giá TB</div></div>
+      <div class="proof-stat"><div class="proof-stat-num">3<em>CN</em></div><div class="proof-stat-label">Chi nhánh</div></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">"Từ sợ hãi đến tự tin tuyên bố: Sẵn sàng thi VSTEP B1!"</div>
+        <p class="review-text">VND giúp tôi cải thiện kỹ năng đọc hiểu và xây dựng sự tự tin tuyệt đối trước ngày thi. AI Advisor tư vấn rất chính xác lộ trình phù hợp với mình.</p>
+        <div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">Nguyễn Thị Hương</div><div class="review-meta">VSTEP B1 · Đã đạt B1</div></div></div>
+      </div>
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">"Sinh viên DNC tự tin phá đảo kỹ năng Reading VSTEP!"</div>
+        <p class="review-text">Tài liệu độc quyền VND và AI luyện đề giúp tôi xử lý gọn các dạng đề khó. Khóa VSTEP B1 cấp tốc 15 buổi lột xác hoàn toàn.</p>
+        <div class="review-author"><div class="review-avatar">T</div><div><div class="review-name">Hồng Thể</div><div class="review-meta">Sinh viên ĐH Nam Cần Thơ · VSTEP 15 buổi</div></div></div>
+      </div>
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">"Bỏ tiếng Anh 7 năm, nhân viên ngân hàng vẫn đậu VSTEP B1!"</div>
+        <p class="review-text">Mất gốc ngữ pháp lâu năm, tôi vẫn chinh phục VSTEP B1 nhờ lộ trình Online tinh gọn và hệ thống LMS luyện đề 24/7 của VND.</p>
+        <div class="review-author"><div class="review-avatar">Q</div><div><div class="review-name">Chị Thu Quyên</div><div class="review-meta">Nhân viên HDBank · VSTEP B1 Online</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESOURCES ═══ -->
+<section id="resources">
+  <div class="section-inner">
+    <span class="section-eyebrow">Tài liệu & Công cụ</span>
+    <h2 class="section-title fade-up">Giá trị khác biệt tại <em>VND</em></h2>
+    <div class="res-grid">
+      <div class="res-cards fade-up">
+        <div class="res-card">
+          <div class="res-icon ri-blue">📚</div>
+          <div><h4>Tài liệu VSTEP độc quyền VND</h4><p>Biên soạn riêng bởi đội ngũ VND, cập nhật theo đề thi thực tế</p></div>
+        </div>
+        <div class="res-card">
+          <div class="res-icon ri-green">📝</div>
+          <div><h4>Kho đề thi VSTEP 500+</h4><p>Bộ đề mô phỏng sát thật, có đáp án và cách giải chi tiết</p></div>
+        </div>
+        <div class="res-card">
+          <div class="res-icon ri-blue">🤖</div>
+          <div><h4>AI luyện Writing & Speaking</h4><p>AI chấm điểm tức thì, gợi ý cải thiện cụ thể từng câu</p></div>
+        </div>
+        <div class="res-card">
+          <div class="res-icon ri-amber">💻</div>
+          <div><h4>LMS – Học trực tuyến 24/7</h4><p>Video HD, bài tập tương tác, theo dõi tiến độ tự động</p></div>
+        </div>
+      </div>
+      <div class="res-cta fade-up">
+        <div>
+          <h3>Tự học VSTEP tại nhà với tài liệu <em>độc quyền</em> VND</h3>
+          <p>Truy cập kho tài liệu, đề thi và hướng dẫn học VSTEP nhanh nhất. Cam kết 6 tuần – 3 tháng tiến bộ rõ rệt.</p>
+        </div>
+        <a href="#contact" class="res-cta-btn">📥 Truy cập miễn phí ngay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARTNERS ═══ -->
+<section class="partners">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-eyebrow" style="display:block;text-align:center;">Đối tác & Cộng đồng</span>
+    <h2 class="section-title fade-up" style="text-align:center;">Đơn vị đồng hành cùng <em>VND</em></h2>
+    <div class="partners-grid">
+      <div class="partner-chip">🏫 ĐH Nam Cần Thơ</div>
+      <div class="partner-chip">🏛️ ĐH Cần Thơ</div>
+      <div class="partner-chip">💼 HDBank</div>
+      <div class="partner-chip">🌐 CLB Tiếng Anh Đồng Tháp</div>
+      <div class="partner-chip">📚 Thư viện VSTEP VND</div>
+      <div class="partner-chip">🎤 Chuỗi Hội thảo Tiếng Anh</div>
+      <div class="partner-chip">🗺️ Tour thực tế với người nước ngoài</div>
+      <div class="partner-chip">🏢 Sở GD&ĐT Đồng Tháp</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-banner">
+  <h2>Bắt đầu hành trình<br><em>chinh phục VSTEP</em> ngay hôm nay</h2>
+  <p>Nhận tư vấn miễn phí từ AI Advisor, đăng ký thi thử và xác nhận mục tiêu cùng VND.</p>
+  <div class="cta-actions">
+    <a href="#contact" class="btn-white">🎓 Đăng ký tư vấn ngay</a>
+    <a href="#ai-advisor" class="btn-ghost-white">🤖 Chat AI miễn phí</a>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="section-eyebrow">Liên hệ</span>
+    <h2 class="section-title fade-up">Đăng ký <em>tư vấn</em> miễn phí</h2>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Chi nhánh Đồng Tháp 1</div>
+            <div class="contact-val">330 Phạm Hữu Lầu, Phường Cao Lãnh, Tỉnh Đồng Tháp</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">☕</div>
+          <div>
+            <div class="contact-label">Chi nhánh Đồng Tháp 2</div>
+            <div class="contact-val">1126 Phạm Hữu Lầu, P. Cao Lãnh (Chiều Coffee & Tea)</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Hotline</div>
+            <div class="contact-val" style="font-size:22px;font-weight:700;color:var(--primary);">0907 123 456</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">contact@vnd.edu.vn</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📘</div>
+          <div>
+            <div class="contact-label">Facebook</div>
+            <div class="contact-val"><a href="#" style="color:var(--primary);text-decoration:none;">VND English Center</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <div class="form-title">📋 Đăng ký tư vấn ngay</div>
+        <div class="form-row">
+          <div class="form-group"><label>Họ và tên *</label><input type="text" placeholder="Nguyễn Văn A"></div>
+          <div class="form-group"><label>Số điện thoại *</label><input type="tel" placeholder="09xx xxx xxx"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@gmail.com"></div>
+        <div class="form-group">
+          <label>Khóa học quan tâm</label>
+          <select>
+            <option>-- Chọn khóa học --</option>
+            <option>VSTEP B1 – Người mất gốc</option>
+            <option>VSTEP B1 – Online 24/7</option>
+            <option>VSTEP Cấp tốc 6 buổi</option>
+            <option>VSTEP B2 – Thực chiến</option>
+            <option>Tiếng Anh Giao tiếp 4 Levels</option>
+            <option>Khóa học Miễn Phí</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Ghi chú</label><textarea placeholder="Trình độ hiện tại, mục tiêu, thời gian có thể học..."></textarea></div>
+        <button class="form-submit" onclick="submitForm(this)">📨 Gửi đăng ký tư vấn</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#">
+          <div class="logo-mark">V</div>
+          <span class="logo-text">VND English Center</span>
+        </a>
+        <p>Trung tâm Ngoại ngữ uy tín tại Cao Lãnh, Đồng Tháp. Đào tạo VSTEP B1/B2, giao tiếp, tích hợp AI – nền tảng EdTech thông minh.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">📘</a>
+          <a href="tel:0907123456" class="social-btn">📞</a>
+          <a href="#" class="social-btn">📹</a>
+          <a href="#" class="social-btn">🌐</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Khóa học</h4>
+        <ul>
+          <li><a href="#courses">VSTEP B1 – Mất gốc</a></li>
+          <li><a href="#courses">VSTEP B1 – Online</a></li>
+          <li><a href="#courses">VSTEP Cấp tốc</a></li>
+          <li><a href="#courses">VSTEP B2</a></li>
+          <li><a href="#courses">Giao tiếp 4 Levels</a></li>
+          <li><a href="#courses">Khóa Miễn Phí</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tài liệu</h4>
+        <ul>
+          <li><a href="#resources">Tự học VSTEP</a></li>
+          <li><a href="#resources">Kho đề thi</a></li>
+          <li><a href="#resources">Sách độc quyền VND</a></li>
+          <li><a href="#resources">Hướng dẫn học nhanh</a></li>
+          <li><a href="#ai-advisor">AI Tư vấn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Về VND</h4>
+        <ul>
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#ecosystem">Hệ sinh thái</a></li>
+          <li><a href="#reviews">Review học viên</a></li>
+          <li><a href="#contact">Blog</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#contact">Đăng ký học</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VND English Center. Nền tảng EdTech thông minh.</span>
+      <div style="display:flex;gap:16px;">
+        <a href="#">Giới thiệu</a>
+        <a href="#contact">Liên hệ</a>
+        <a href="#">Blog</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+<script>
+/* ─── SITE CONFIG (thay đổi 1 nơi) ─── */
+const SITE = {
+  name: "VND English Center",
+  phone: "0907 123 456",
+  address: "330 Phạm Hữu Lầu, P. Cao Lãnh, Đồng Tháp",
+  email: "contact@vnd.edu.vn",
+  facebook: "VND English Center",
+};
+
+/* ─── THEME TOGGLE ─── */
+const themeBtn = document.getElementById('themeToggle');
+let currentTheme = localStorage.getItem('vnd-theme') || 'light';
+applyTheme(currentTheme);
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  currentTheme = theme;
+  localStorage.setItem('vnd-theme', theme);
+}
+themeBtn.addEventListener('click', () => {
+  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+/* ─── NAV SCROLL ─── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+/* ─── MOBILE MENU ─── */
+function toggleMobileMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = '';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(20px);padding:16px;gap:4px;z-index:199;border-bottom:1px solid var(--border);';
+  }
+}
+
+/* ─── INTERSECTION OBSERVER ─── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.prog-fill[data-w]').forEach(bar => {
+        setTimeout(() => { bar.style.width = bar.dataset.w; }, 100);
+      });
+    }
+  });
+}, { threshold: .12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+document.querySelectorAll('.eco-right').forEach(el => io.observe(el));
+
+/* ─── ECO FEATURE SWITCH ─── */
+const ecoPreviews = {
+  dashboard: `
+    <div class="eco-preview-header">// DASHBOARD ADMIN – Tổng quan hôm nay</div>
+    <div class="eco-stats-grid">
+      <div class="eco-stat-card"><div class="eco-stat-num">32.5<em>tr</em></div><div class="eco-stat-label">Doanh thu hôm nay</div></div>
+      <div class="eco-stat-card"><div class="eco-stat-num">27<em>+</em></div><div class="eco-stat-label">Đăng ký mới</div></div>
+      <div class="eco-stat-card"><div class="eco-stat-num">412</div><div class="eco-stat-label">Đang học</div></div>
+      <div class="eco-stat-card"><div class="eco-stat-num">15.8<em>%</em></div><div class="eco-stat-label">Tỷ lệ chuyển đổi</div></div>
+    </div>
+    <div class="eco-progress-list">
+      <div><div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">VSTEP B1</span><span>420 triệu</span></div><div class="prog-bar"><div class="prog-fill pf-blue" style="width:88%"></div></div></div>
+      <div><div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">VSTEP Online</span><span>180 triệu</span></div><div class="prog-bar"><div class="prog-fill pf-green" style="width:62%"></div></div></div>
+      <div><div class="eco-prog-label"><span style="color:rgba(255,255,255,.5)">Giao tiếp</span><span>95 triệu</span></div><div class="prog-bar"><div class="prog-fill pf-amber" style="width:38%"></div></div></div>
+    </div>`,
+  crm: `
+    <div class="eco-preview-header">// CRM – Pipeline học viên</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      ${['Lead mới','Đang tư vấn','Đã test đầu vào','Đã đóng học phí','Đang học','Hoàn thành'].map((s,i) => `
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:rgba(255,255,255,.7);">${s}</span>
+          <span style="font-size:12px;padding:3px 10px;border-radius:20px;background:rgba(79,99,255,.2);color:#b3bcff;font-weight:700;">${[24,18,12,35,412,89][i]}</span>
+        </div>`).join('')}
+    </div>`,
+  lms: `
+    <div class="eco-preview-header">// LMS Dashboard – Học viên</div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px;">
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:8px;">VSTEP B1 – Tiến độ của bạn</div>
+        <div class="prog-bar" style="margin-bottom:8px;"><div class="prog-fill pf-blue" style="width:67%"></div></div>
+        <div style="font-size:13px;color:#b3bcff;font-weight:700;">67% hoàn thành · 12 ngày streak 🔥</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:rgba(255,181,71,.1);border:1px solid rgba(255,181,71,.2);border-radius:10px;padding:14px;text-align:center;"><div style="font-size:22px;font-weight:800;color:#ffd07a;">1,240</div><div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;">XP</div></div>
+        <div style="background:rgba(79,99,255,.1);border:1px solid rgba(79,99,255,.2);border-radius:10px;padding:14px;text-align:center;"><div style="font-size:22px;font-weight:800;color:#b3bcff;">Lv.8</div><div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;">Cấp độ</div></div>
+        <div style="background:rgba(0,217,126,.1);border:1px solid rgba(0,217,126,.2);border-radius:10px;padding:14px;text-align:center;"><div style="font-size:22px;font-weight:800;color:#00f090;">12</div><div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;">Streak</div></div>
+      </div>
+    </div>`,
+  builder: `
+    <div class="eco-preview-header">// LIVE BUILDER – /dev mode</div>
+    <div style="background:rgba(79,99,255,.05);border:2px dashed rgba(79,99,255,.3);border-radius:12px;padding:20px;margin-bottom:14px;position:relative;">
+      <div style="position:absolute;top:-10px;left:12px;background:rgba(79,99,255,.8);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700;">HERO SECTION</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:12px;">Tiêu đề · Mô tả · Nút CTA · Video nền</div>
+      <div style="display:flex;gap:8px;">
+        <button style="background:rgba(255,255,255,.1);border:none;border-radius:8px;padding:7px 14px;color:#fff;font-size:12px;cursor:pointer;">✏️ Sửa</button>
+        <button style="background:rgba(255,255,255,.1);border:none;border-radius:8px;padding:7px 14px;color:#fff;font-size:12px;cursor:pointer;">⚙️ Settings</button>
+        <button style="background:rgba(255,255,255,.1);border:none;border-radius:8px;padding:7px 14px;color:#fff;font-size:12px;cursor:pointer;">📄 Duplicate</button>
+      </div>
+    </div>
+    <div style="font-size:12px;color:rgba(255,255,255,.35);text-align:center;">Hover vào bất kỳ section → Edit trực tiếp<br>Không cần code · Không cần Elementor</div>`
+};
+
+function showEco(el, key) {
+  document.querySelectorAll('.eco-feature').forEach(f => f.classList.remove('active'));
+  el.classList.add('active');
+  const preview = document.getElementById('ecoPreview');
+  preview.style.opacity = '0';
+  setTimeout(() => {
+    preview.innerHTML = ecoPreviews[key];
+    preview.style.opacity = '1';
+  }, 150);
+}
+document.getElementById('ecoPreview').style.transition = 'opacity .2s';
+
+/* ─── AI ADVISOR (powered by Claude API) ─── */
+let aiHistory = [];
+let isLoading = false;
+
+const SYSTEM_PROMPT = `Bạn là AI Advisor của VND English Center – trung tâm tiếng Anh tại Cao Lãnh, Đồng Tháp. Trả lời bằng tiếng Việt, thân thiện, ngắn gọn, hữu ích.
+
+Thông tin trung tâm:
+- Tên: VND English Center
+- Địa chỉ: 330 Phạm Hữu Lầu, P. Cao Lãnh, Đồng Tháp (chi nhánh 2: 1126 Phạm Hữu Lầu)
+- Hotline: 0907 123 456
+- Email: contact@vnd.edu.vn
+
+Khóa học:
+1. VSTEP B1 – Người mất gốc: lộ trình 3 tháng, dành cho người lâu không học
+2. VSTEP B1 – Online 24/7: học mọi lúc, AI hỗ trợ, giáo viên live cuối tuần
+3. VSTEP Cấp tốc – 6 buổi: cho người có nền tảng, ôn nhanh trước thi
+4. VSTEP B2 – Thực chiến: dành cho giảng viên, cán bộ, học viên cao học
+5. Giao tiếp 4 Levels: từ phát âm đến hội thoại, có giáo viên nước ngoài
+6. Khóa Miễn Phí: từ vựng & ngữ pháp cơ bản, truy cập trọn đời
+
+Cam kết: 95% học viên đạt đầu ra, hoàn tiền nếu không đạt. Tư vấn miễn phí, test đầu vào miễn phí.
+
+Hướng dẫn:
+- Khi người dùng hỏi về trình độ/khóa học → hỏi thêm mục tiêu và thời gian để gợi ý chính xác
+- Khi hỏi học phí → nói "Liên hệ hotline 0907 123 456 để được báo học phí ưu đãi nhất"
+- Luôn kết thúc bằng lời mời đăng ký tư vấn hoặc hotline
+- Trả lời ngắn gọn, không quá 150 từ mỗi lượt`;
+
+async function sendAI() {
+  const input = document.getElementById('aiInput');
+  const msg = input.value.trim();
+  if (!msg || isLoading) return;
+
+  input.value = '';
+  appendMsg('user', msg);
+  aiHistory.push({ role: 'user', content: msg });
+  setLoading(true);
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 400,
+        system: SYSTEM_PROMPT,
+        messages: aiHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'Xin lỗi, tôi gặp sự cố. Vui lòng thử lại hoặc gọi hotline 0907 123 456.';
+    aiHistory.push({ role: 'assistant', content: reply });
+    replaceLoading(reply);
+  } catch {
+    replaceLoading('Xin lỗi, có lỗi kết nối. Vui lòng thử lại hoặc liên hệ hotline <strong>0907 123 456</strong> để được tư vấn trực tiếp.');
+  }
+  setLoading(false);
+}
+
+function sendQuick(text) {
+  document.getElementById('aiInput').value = text;
+  sendAI();
+}
+
+function appendMsg(type, text) {
+  const box = document.getElementById('aiMessages');
+  const div = document.createElement('div');
+  div.className = `ai-msg ${type}`;
+  div.innerHTML = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+  return div;
+}
+
+function setLoading(state) {
+  isLoading = state;
+  const btn = document.getElementById('aiSendBtn');
+  btn.disabled = state;
+  if (state) {
+    const div = document.createElement('div');
+    div.className = 'ai-msg loading';
+    div.id = 'aiLoadingMsg';
+    div.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+    document.getElementById('aiMessages').appendChild(div);
+    document.getElementById('aiMessages').scrollTop = 99999;
+  }
+}
+
+function replaceLoading(text) {
+  const loading = document.getElementById('aiLoadingMsg');
+  if (loading) {
+    loading.className = 'ai-msg bot';
+    loading.removeAttribute('id');
+    loading.innerHTML = text;
+    document.getElementById('aiMessages').scrollTop = 99999;
+  }
+}
+
+/* ─── AI SEARCH ─── */
+const searchAnswers = {
+  default: (q) => `Dựa trên câu hỏi "<strong>${q}</strong>", VND English Center gợi ý bạn tham khảo:<br><br>
+    🎯 <strong>VSTEP B1 – Online 24/7</strong>: Linh hoạt thời gian, học mọi lúc<br>
+    🎯 <strong>VSTEP B1 – Mất gốc</strong>: Nếu bạn cần hệ thống từ đầu<br><br>
+    📞 Hotline <strong>0907 123 456</strong> để được tư vấn chi tiết miễn phí!`,
+  cuối_tuần: `🗓️ VND có lịch học <strong>Thứ 7 + Chủ nhật</strong> cho hầu hết các khóa:<br><br>
+    ✅ VSTEP B1 Online – Live session cuối tuần<br>
+    ✅ Giao tiếp 4 Levels – Sáng/chiều T7-CN<br>
+    ✅ VSTEP Cấp tốc 6 buổi – Linh hoạt sắp xếp<br><br>
+    📞 Gọi <strong>0907 123 456</strong> để đặt lịch học cuối tuần!`,
+  mất_gốc: `🌱 Nếu bạn mất gốc, VND khuyên chọn:<br><br>
+    🥇 <strong>VSTEP B1 – Người mất gốc</strong>: Lộ trình từ A-Z, 3 tháng đạt B1<br>
+    🎁 Hoặc bắt đầu với <strong>Khóa Miễn Phí</strong> để làm quen trước<br><br>
+    AI sẽ test trình độ miễn phí → Đề xuất lộ trình phù hợp nhất 🤖<br>
+    📞 Hotline: <strong>0907 123 456</strong>`,
+  học_phí: `💰 Học phí tại VND English Center:<br><br>
+    📌 Phụ thuộc vào khóa học, thời gian, hình thức học<br>
+    🎁 Khóa Miễn Phí: <strong>0 đồng</strong> – Truy cập trọn đời<br>
+    🤝 Ưu đãi nhóm 3+ người, sinh viên, cán bộ<br><br>
+    Để nhận báo giá chính xác nhất, gọi <strong>0907 123 456</strong> hoặc nhắn tin fanpage VND nhé!`,
+};
+
+function doSearch() {
+  const q = document.getElementById('searchInput').value.trim();
+  if (!q) return;
+  const result = document.getElementById('searchResult');
+  const text = document.getElementById('searchResultText');
+  result.classList.add('show');
+
+  let answer;
+  const qLow = q.toLowerCase();
+  if (qLow.includes('cuối tuần') || qLow.includes('tối') || qLow.includes('t7') || qLow.includes('chủ nhật')) {
+    answer = searchAnswers.cuối_tuần;
+  } else if (qLow.includes('mất gốc') || qLow.includes('cơ bản') || qLow.includes('từ đầu')) {
+    answer = searchAnswers.mất_gốc;
+  } else if (qLow.includes('học phí') || qLow.includes('giá') || qLow.includes('bao nhiêu')) {
+    answer = searchAnswers.học_phí;
+  } else {
+    answer = searchAnswers.default(q);
+  }
+  text.innerHTML = answer;
+}
+
+function setSearch(text) {
+  document.getElementById('searchInput').value = text;
+  doSearch();
+}
+
+/* ─── FORM SUBMIT ─── */
+function submitForm(btn) {
+  btn.textContent = '✅ Đã nhận! VND sẽ liên hệ sớm...';
+  btn.style.background = 'linear-gradient(90deg,#00b85c,#00d97e)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '📨 Gửi đăng ký tư vấn';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+
+/* ─── SMOOTH SCROLL ─── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // close mobile menu if open
+    const links = document.querySelector('.nav-links');
+    if (links) links.style.display = '';
+  });
+});
+</script>
+</body>
+</html>
